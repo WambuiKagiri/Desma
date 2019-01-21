@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+<title>Contact</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/bootstrap4/bootstrap.min.css'%}">
+<link href="{%static 'MySite/plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/rangeslider.js-2.3.0/rangeslider.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/contact.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/contact_responsive.css'%}">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header">
+		{% include "includes/header.html" %}
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu trans_500">
+		{% include "includes/menu.html" %}
+	</div>
+	
+	<!-- Home -->
+
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{%static 'MySite/images/contact.jpg'%}" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content d-flex flex-row align-items-end justify-content-start">
+							<div class="home_title">Contact us</div>
+							<div class="breadcrumbs ml-auto">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li>Contact</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contact -->
+
+	<div class="contact">
+		<div class="container">
+			<div class="row">
+
+				<p></p>
+
+				
+				<!-- Contact Info -->
+				<div class="col-lg-4">
+					<div class="contact_info">
+						<div class="section_title">Get in touch with us</div>
+						
+						<div class="contact_info_text"><p>Most people are extremely careful about their choice of doctor, lawyer or stockbroker, yet surprisingly casual about the next most important professional in the lives - their real estate agent.</p></div>
+						<div class="contact_info_content">
+							<ul class="contact_info_list">
+								<li>
+									<div>Address:</div>
+									<div>1481 K.u drive, Nairobi 93424</div>
+								</li>
+								<li>
+									<div>Phone:</div>
+									<div>+254 704 100 075</div>
+								</li>
+								<li>
+									<div>Email:</div>
+									<div>desmaproperties@gmail.com</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Contact Form -->
+				<div class="col-lg-8">
+					<div class="contact_form_container">
+						<!-- {% if error_message %}
+							<p><strong>{{ error_message }}</strong></p>
+						{% endif %} -->
+						<form id="customer_form" method="POST" action=".">
+							{% csrf_token %}
+							{{ form }}
+							<div class="row">
+								<!-- Name -->
+								<div class="col-lg-6 contact_name_col">
+									<input id="Name" type="text" class="contact_input" placeholder="Name" required="required" name="Name">
+								</div>
+								<!-- Email -->
+								<div class="col-lg-6">
+									<input id="Email" type="email" class="contact_input" placeholder="Email" required="required" name="Email">
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<!-- Mobile Number -->
+								<div class="col-lg-6 contact_name_col">
+									<input id="mobile_no" type="number" class="contact_input" placeholder="Mobile Number" required="required" name="mobile_no">
+								</div>
+							</div>
+							<!-- <textarea name="message" form="customer_form" class="contact_name_col">Enter text here...</textarea> -->
+							<button class="contact_button button" type="submit">send</button>
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Map -->
+
+	<div class="contact_map" onload="initialize()">
+		<!-- Google Map -->
+		<div class="map">
+			<div id="google_map" class="google_map">
+				<div class="map_container">
+					<div id="map"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		{% include "includes/newsletter.html" %}
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		{% include "includes/footer.html" %}
+	</footer>
+</div>
+
+<script src="{%static 'MySite/js/jquery-3.2.1.min.js'%}"></script>
+<script src="{%static 'MySite/styles/bootstrap4/popper.js'%}"></script>
+<script src="{%static 'MySite/styles/bootstrap4/bootstrap.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/easing/easing.js'%}"></script>
+<script src="{%static 'MySite/plugins/rangeslider.js-2.3.0/rangeslider.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/parallax-js-master/parallax.min.js'%}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<script src="{%static 'MySite/js/contact.js'%}"></script>
+</body>
+</html>

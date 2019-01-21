@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+{% for properties in propertyy %}
+<title>{{ properties.property_title }}</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/bootstrap4/bootstrap.min.css'%}">
+<link href="{%static 'MySite/plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/OwlCarousel2-2.2.1/owl.theme.default.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/OwlCarousel2-2.2.1/animate.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/rangeslider.js-2.3.0/rangeslider.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/property.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/property_responsive.css'%}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+	
+	<header class="header">
+		{% include "includes/header.html" %}
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu trans_500">
+		{% include "includes/menu.html" %}
+	</div>
+	
+	<!-- Home -->
+	
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{%static 'MySite/images/properties.jpg'%}" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content d-flex flex-row align-items-end justify-content-start">
+							<div class="home_title">{{ properties.property_title }}</div>
+							<div class="breadcrumbs ml-auto">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li>{{ properties.property_title }}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Home Search -->
+	
+
+	<!-- Intro -->
+
+	<div class="intro">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="intro_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
+						<div class="intro_title_container">
+							<div class="intro_title">{{ properties.property_title }}</div>
+							<div class="intro_tags">
+								<ul>
+									<li><a href="#">Hottub</a></li>
+									<li><a href="#">Swimming Pool</a></li>
+									<li><a href="#">Garden</a></li>
+									<li><a href="#">Patio</a></li>
+									<li><a href="#">Hard Wood Floor</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="intro_price_container ml-lg-auto d-flex flex-column align-items-start justify-content-center">
+							<div>{{ properties.rent_buy }}</div>
+							<div class="intro_price">{{ properties.price }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="intro_slider_container">
+
+			<!-- Intro Slider -->
+			<div class="owl-carousel owl-theme intro_slider">
+				<!-- Slide -->
+				<div class="owl-item"><img src="{%static 'MySite/images/sittin_g1.jpg'%}" alt=""></div>
+				<!-- Slide -->
+				<div class="owl-item"><img src="{%static 'MySite/images/kitche_n1.jpg'%}" alt=""></div>
+				<!-- Slide -->
+				<div class="owl-item"><img src="{%static 'MySite/images/kittchen1.jpg'%}" alt=""></div>
+				<!-- Slide -->
+				<div class="owl-item"><img src="{%static 'MySite/images/dining1.jpg'%}" alt=""></div>
+			</div>
+
+			<!-- Intro Slider Nav -->
+			<div class="intro_slider_nav_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="intro_slider_nav_content d-flex flex-row align-items-start justify-content-end">
+								<div class="intro_slider_nav intro_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+								<div class="intro_slider_nav intro_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Property -->
+
+	<div class="property">
+		<div class="container">
+			<div class="row">
+				<!-- Property Content -->
+				<div class="col-lg-5">
+					<div class="property_content">
+						<div class="property_icons">
+							<div class="property_title">Extra Facilities</div>
+							<div class="property_text property_text_1">
+								<p>//somethings here</p>
+							</div>
+							<div class="property_rooms d-flex flex-sm-row flex-column align-items-start justify-content-start">
+
+								<!-- Property Room Item -->
+								<div class="property_room">
+									<div class="property_room_title">Bedrooms</div>
+									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
+										<div class="room_icon"><img src="{%static 'MySite/images/room_1.png'%}" alt=""></div>
+										<div class="room_num">{{ properties.bedrooms }}</div>
+									</div>
+								</div>
+
+								<!-- Property Room Item -->
+								<div class="property_room">
+									<div class="property_room_title">Bathrooms</div>
+									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
+										<div class="room_icon"><img src="{%static 'MySite/images/room_2.png'%}" alt=""></div>
+										<div class="room_num">{{ properties.bathrooms }}</div>
+									</div>
+								</div>
+
+								<!-- Property Room Item -->
+								<div class="property_room">
+									<div class="property_room_title">Area</div>
+									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
+										<div class="room_icon"><img src="{%static 'MySite/images/room_3.png'%}" alt=""></div>
+										<div class="room_num">{{ properties.area }}Sq Ft</div>
+									</div>
+								</div>
+
+								<!-- Property Room Item -->
+								<div class="property_room">
+									<div class="property_room_title">Patio</div>
+									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
+										<div class="room_icon"><img src="{%static 'MySite/images/room_4.png'%}" alt=""></div>
+										<div class="room_num">{{ properties.patio }}</div>
+									</div>
+								</div>
+
+								<!-- Property Room Item -->
+								<div class="property_room">
+									<div class="property_room_title">Garage</div>
+									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
+										<div class="room_icon"><img src="{%static 'MySite/images/room_5.png'%}" alt=""></div>
+										<div class="room_num">{{ properties.garage }}</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- Description -->
+
+						<div class="property_description">
+							<div class="property_title">Description</div>
+							<div class="property_text property_text_2">
+								<p>{{ properties.description }}</p>
+							</div>
+						</div>
+
+						<!-- Additional Details -->
+
+						<div class="additional_details">
+							<div class="property_title">Additional Details</div>
+							<div class="details_container">
+								<ul>
+									<li><span><b>bedroom features: </b> </span>Main Floor Master Bedroom, Walk-In Closet</li>
+									<li><span>dining area: </span>Breakfast Counter/Bar, Living/Dining Combo</li>
+									<li><span>doors & windows: </span>Bay Window</li>
+									<li><span>entry location: </span>Mid Level</li>
+									<li><span>floors: </span>Raised Foundation, Vinyl Tile, Wall-to-Wall Carpet, Wood</li>
+								</ul>
+							</div>
+						</div>
+						<div class="right">
+							
+							<button class="sidebar_search_button search_form_button"><a href="/property/{{properties.property_title}}/BookViewing/">Book Viewing</a></button>
+
+							
+						</div>
+						
+						
+
+						
+					</div>
+				</div>
+				<div class="col-lg-7">
+					<div class="details">
+						<div>
+							<div class="property_title">Take a virtual tour of this property</div>
+							<iframe style="max-width: 100%;" width="940" height="480" frameborder="0" allowfullscreen src="https://players.cupix.com/embed.html?key=sCTlt6d3"></iframe>
+						</div>
+						<script>
+     						function init() {
+        						map = new OpenLayers.Map("mapp");
+        						var mapnik         = new OpenLayers.Layer.OSM();
+        						var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+        						var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+        						var position       = new OpenLayers.LonLat(73.84,18.52).transform( fromProjection, toProjection);
+        						var zoom           = 15; 
+ 
+        						map.addLayer(mapnik);
+        						map.setCenter(position, zoom );
+      						}
+    					</script>
+						<!-- Property On Map -->
+						<div class="property_map" onload="init()">
+							<div class="property_title">Property on map</div>
+
+						<div class="property_map_container">
+							<!-- Google Map -->
+							<div id="google_map" class="google_map" >
+								<div class="map_container">
+									<div id="mapp"></div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		{% include "includes/newsletter.html" %}
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		{% include "includes/footer.html" %}
+	</footer>
+{% endfor %}
+</div>
+
+<script src="{%static 'MySite/js/jquery-3.2.1.min.js'%}"></script>
+<script src="{%static 'MySite/styles/bootstrap4/popper.js'%}"></script>
+<script src="{%static 'MySite/styles/bootstrap4/bootstrap.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/greensock/TweenMax.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/greensock/TimelineMax.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/scrollmagic/ScrollMagic.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/greensock/animation.gsap.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/greensock/ScrollToPlugin.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/OwlCarousel2-2.2.1/owl.carousel.js'%}"></script>
+<script src="{%static 'MySite/plugins/easing/easing.js'%}"></script>
+<script src="{%static 'MySite/plugins/rangeslider.js-2.3.0/rangeslider.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/parallax-js-master/parallax.min.js'%}"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>  -->
+<script src="{%static 'MySite/js/property.js'%}"></script>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+</body>
+</html>

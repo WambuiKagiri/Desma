@@ -1,0 +1,51 @@
+{% load staticfiles%}
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="home_search_container">
+				<div class="home_search_content">
+					<form class="search_form d-flex flex-row align-items-start justfy-content-start" action="{% url 'MySite:search' %}">
+						<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
+							<div>
+								
+								<select class="search_form_select">
+									<option disabled selected>Rent or Buy</option>
+									<option>Rent</option>
+									<option>Buy</option>
+								</select>
+							</div>
+							<div>
+								<select class="search_form_select">
+									<option disabled selected>All types</option>
+									<option>Residential</option>
+									<option>Commercial</option>
+								</select>
+							</div>
+							<div>
+								<select class="search_form_select">
+									<option disabled selected>Town</option>
+									<option>Ruiru</option>
+									<option>Thika</option>
+									<option>Kahawa Sukari</option>
+									<option>Kahawa Wendani</option>
+								</select>
+							</div>
+							<div>
+								<select class="search_form_select">
+									<option disabled selected>Price Range</option>
+									<option>10 000-50 000</option>
+									<option>50 000-100 000</option>
+									<option>100 000-900 000</option>
+									<option>1 000 000 and above</option>
+								</select>
+							</div> 
+						</div>
+						<button class="search_form_button ml-auto" type="submit">search</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

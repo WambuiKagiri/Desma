@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{%static 'MySite/images/newsletter.jpg'%}" data-speed="0.8"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="newsletter_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
+							<div class="newsletter_title_container">
+								<div class="newsletter_title">Want to get updates?</div>
+							
+							</div>
+							<div class="newsletter_form_container">
+								<form method="post" class="newsletter_form" id="subscribe_form" action=".">
+									{% csrf_token %}
+									<input type="email" class="newsletter_input" placeholder="Email" required="required" name="Email">
+									<button class="newsletter_button" type="submit">subscribe now</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>

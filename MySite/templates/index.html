@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'MySite/style.css'%}"> -->
+	<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/bootstrap4/bootstrap.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/OwlCarousel2-2.2.1/owl.theme.default.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'MySite/plugins/OwlCarousel2-2.2.1/animate.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/main_styles.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'MySite/styles/responsive.css'%}">
+	<title>Desma Property Agency</title>
+</head>
+<body>
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header">
+			{% include "includes/header.html" %}
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu trans_500">
+			{% include "includes/menu.html" %}
+		</div>
+	
+		<!-- Home -->
+
+		<div class="home">
+			<!-- Home Slider -->
+			<div class="home_slider_container">
+				<div class="owl-carousel owl-theme home_slider">
+					
+					<!-- Slide -->
+					<div class="owl-item">
+						<div class="home_slider_background" style="background-image:url({%static 'MySite/images/homeslider.jpg'%})"></div>		
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Home Search -->
+		
+		<div class="home_search"> 
+				{% include "includes/search.html" %}
+		</div>
+			
+		<!-- Recent -->
+
+		<div class="recent">
+			<div class="container">
+				<div class="row">
+					
+				</div>
+				<div class="row recent_row">
+					
+					<div class="col">
+						<div class="recent_slider_container">
+							<div class="owl-carousel owl-theme recent_slider">
+								{% for properties in propertyy %}
+								<!-- Slide -->
+								<div class="owl-item">
+									<div class="recent_item">
+										<div class="recent_item_inner">
+											 
+											<div class="recent_item_image">
+												<img src="{{ properties.property_picture.url }}" alt="">
+											</div>
+											<div class="recent_item_body text-center">
+												<div class="recent_item_location">{{ properties.location }}</div>
+												<div class="recent_item_title"><a href="/property/{{properties.property_title}}">{{ properties.property_title }}</a></div>
+												<div class="recent_item_price">{{ properties.price }}</div>
+											</div>
+											<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
+												<div><div class="recent_icon"><img src="{%static 'MySite/images/icon_1.png'%}" alt=""></div><span>{{ properties.area }} Ftsq</span></div>
+												<div><div class="recent_icon"><img src="{%static 'MySite/images/icon_2.png'%}" alt=""></div><span>{{ properties.bedrooms }}Bedrooms</span></div>
+												<div><div class="recent_icon"><img src="{%static 'MySite/images/icon_3.png'%}" alt=""></div><span>{{ properties.bathrooms }}Bathrooms</span></div>
+											</div>
+										</div>
+									</div>
+								</div> 
+								
+								{% endfor %}
+							</div>
+
+							<div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
+								<div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+								<div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+							</div>
+						</div>
+						<div class="button recent_button"><a href="#">see more</a></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- Newsletter -->
+
+		<div class="newsletter">
+			{% include "includes/newsletter.html" %}
+		</div>
+
+		<!-- Footer -->
+
+		<footer class="footer">
+			{% include "includes/footer.html" %}
+		</footer>
+	</div>
+
+<script src="{%static 'MySite/js/jquery-3.2.1.min.js'%}"></script>
+<script src="{%static 'MySite/styles/bootstrap4/popper.js'%}"></script>
+<script src="{%static 'MySite/styles/bootstrap4/bootstrap.min.js'%}"></script>
+<script src="{%static 'MySite/plugins/OwlCarousel2-2.2.1/owl.carousel.js'%}"></script>
+<script src="{%static 'MySite/plugins/easing/easing.js'%}"></script>
+<script src="{%static 'MySite/plugins/parallax-js-master/parallax.min.js'%}"></script>
+<script src="{%static 'MySite/js/custom.js'%}"></script>
+</body>
+</html>
